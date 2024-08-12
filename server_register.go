@@ -17,6 +17,7 @@ type RemoteRegistryConfig struct {
 	Group       string `v:"required#[nacos.registry.group] can not be empty"`
 	Username    string `v:"required#[nacos.registry.username] can not be empty"`
 	Password    string `v:"required#[nacos.registry.password] can not be empty"`
+	ClusterName string `v:"required#[nacos.registry.cluster-name] can not be empty"`
 }
 
 func LoadRegisterConfig() {
@@ -43,7 +44,7 @@ func LoadRegisterConfig() {
 
 	address := []string{url}
 
-	registry := NewRegistry(address, constant.WithNamespaceId(config.NameSpaceId), constant.WithUsername(config.Username), constant.WithPassword(config.Password)).SetGroupName(config.Group)
+	registry := NewRegistry(address, constant.WithNamespaceId(config.NameSpaceId), constant.WithUsername(config.Username), constant.WithPassword(config.Password)).SetGroupName(config.Group).SetClusterName(config.ClusterName)
 	gsvc.SetRegistry(registry)
 	appName, err := g.Cfg().Get(gctx.GetInitCtx(), "app.name")
 	if err != nil {
