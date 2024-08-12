@@ -28,4 +28,5 @@ nacos:
     group: "default"
     username: "nacos"
     password: "nacos"
+    clusterName: "default"
 ```
