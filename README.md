@@ -6,8 +6,7 @@
 go get -u -v github.com/LanceAdd/nacos-gf latest
 ```
 
-## config.yaml
-
+## whole config.yaml
 ```yaml
 nacos:
   cloud:
@@ -30,8 +29,43 @@ nacos:
     password: "nacos"
     clusterName: "default"
 ```
-## Usage
 
+## Usage
+### Use the remote configuration file and register to Nacos as a service instance
+
+#### local config.yaml
+```yaml
+nacos:
+  cloud:
+    config: true
+  config:
+    ip: "127.0.0.1"
+    port: 8848
+    nameSpaceId: "public"
+    group: "default"
+    dataId: "config.yaml"
+    username: "nacos"
+    password: "nacos"
+```
+
+#### remote config.yaml
+```yaml
+nacos:
+  cloud:
+    registry: true
+  registry:
+    ip: "127.0.0.1"
+    port: 8848 s
+    nameSpaceId: "public"
+    group: "default"
+    username: "nacos"
+    password: "nacos"
+    clusterName: "default"
+
+```
+
+
+#### example/boot/boot.go
 ```go
 package boot
 
@@ -46,7 +80,7 @@ func init() {
 }
 
 ```
-
+#### example/main.go
 ```go
 package main
 
