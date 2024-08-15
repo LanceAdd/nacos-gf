@@ -22,7 +22,7 @@ nacos:
     password: "nacos"
   registry:
     ip: "127.0.0.1"
-    port: 8848 s
+    port: 8848
     nameSpaceId: "public"
     group: "default"
     username: "nacos"
@@ -55,7 +55,7 @@ nacos:
     registry: true
   registry:
     ip: "127.0.0.1"
-    port: 8848 s
+    port: 8848
     nameSpaceId: "public"
     group: "default"
     username: "nacos"
